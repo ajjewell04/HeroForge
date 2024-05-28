@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="Final.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Final"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <StackPanel>
+        <CommandBar>
+            <AppBarButton Name="ClassButton" Icon="Account" Label="ClassButton" Click="AppBarButton_Click"/>
+            <AppBarButton Name="RaceButton" Icon="Admin" Label="RaceButton" Click="AppBarButton_Click"/>
+            <AppBarButton Name="BackgroundButton" Icon="AllApps" Label="BackgroundButton" Click="AppBarButton_Click"/>
+        </CommandBar>
+        <Button x:Name="NewItem" Content="Create New" Click="CreateNewButton"></Button>
+        <ListBox x:Name="current" SelectionChanged="LoadItem"></ListBox>
+    </StackPanel>
+</Page>
