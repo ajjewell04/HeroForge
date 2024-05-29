@@ -7,14 +7,29 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <StackPanel>
+    <StackPanel Background="#4c5758">
         <CommandBar>
-            <AppBarButton Name="ClassButton" Icon="Account" Label="ClassButton" Click="AppBarButton_Click"/>
-            <AppBarButton Name="RaceButton" Icon="Admin" Label="RaceButton" Click="AppBarButton_Click"/>
-            <AppBarButton Name="BackgroundButton" Icon="AllApps" Label="BackgroundButton" Click="AppBarButton_Click"/>
+            <AppBarButton Name="ClassButton"  Label="ClassButton" Click="AppBarButton_Click">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="/Assets/character.ico"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Name="RaceButton" Label="RaceButton" Click="AppBarButton_Click">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="/Assets/class.ico"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Name="BackgroundButton" Label="BackgroundButton" Click="AppBarButton_Click">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="/Assets/background.ico"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
         </CommandBar>
-        <Image Width="200" Height="200" Source="/Assets/logo.png"/>
         <Button x:Name="NewItem" Content="Create New" Click="CreateNewButton"></Button>
         <ListBox x:Name="current" SelectionChanged="LoadItem"></ListBox>
+        <Grid>
+            <Image Width="200" Height="200" Source="/Assets/logo.png" Margin="104,431,128,-431"/>
+        </Grid>
     </StackPanel>
+    
 </Page>
