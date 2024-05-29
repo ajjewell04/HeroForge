@@ -10,9 +10,14 @@
 
     <StackPanel>
         <Button Content="Go Back" Click="BackButton"></Button>
-        <TextBlock Text="Name"></TextBlock>
+        <TextBlock Text="Name:"></TextBlock>
+        <TextBox/>
+        <TextBlock Text="Description:"></TextBlock>
+        <TextBox/>
+        <TextBlock Text="Proficiencies:"></TextBlock>
         <StackPanel Name="ProfList"></StackPanel>
-        <TextBlock>Feature</TextBlock>
-        
+        <TextBlock Text="Feature:"/>
+        <TextBox/>
+
     </StackPanel>
 </Page>
