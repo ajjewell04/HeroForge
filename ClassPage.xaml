@@ -10,10 +10,22 @@
     <ScrollViewer>
     <StackPanel>
         <Button Content="Go Back" Click="BackButton"></Button>
-        <TextBlock Text="Proficiencies"></TextBlock>
+            <TextBox Text="New Class"></TextBox>
+            <TextBlock Text="Class Description"></TextBlock>
+            <TextBox AcceptsReturn="True"></TextBox>
+        <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Proficiencies: Choose "></TextBlock>
+                <TextBox TextWrapping="Wrap"></TextBox>
+            </StackPanel>
+        
         <StackPanel Name="ProfList"></StackPanel>
+        <TextBlock Text="Other Proficiencies"></TextBlock>
+            <StackPanel Name="oProf"></StackPanel>
+            <Button Content="Add Other Proficiency" Click="OProfButton"></Button>
         <TextBlock>Equipment</TextBlock>
-        <ListBox></ListBox>
+            <StackPanel Name="equip"></StackPanel>
+            <Button Content="Add new Equipment" Click="EquipButton"></Button>
+            <ListBox></ListBox>
         <TextBlock>Features</TextBlock>
         <StackPanel Name ="levelList"></StackPanel>
     </StackPanel>

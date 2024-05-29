@@ -21,8 +21,12 @@ namespace Final
     /// </summary>
     public sealed partial class ClassPage : Page
     {
+        List<StackPanel> levelPanels = new List<StackPanel>();
+        List<Button> levelbuttons = new List<Button>();
+
         public ClassPage()
         {
+
             this.InitializeComponent();
 
             for(int i = 0; i < 18; i++)
@@ -36,18 +40,59 @@ namespace Final
             {
                 TextBlock textBlock = new TextBlock();
                 textBlock.Text = "Level " + i + " features:";
-                ListBox listBox = new ListBox();
-                listBox.Name = i.ToString();
+                //textBlock.Text = i.ToString() + "butt";
+
+                StackPanel listBox = new StackPanel();
+                levelPanels.Add(listBox);
 
                 Button button = new Button();
                 button.Content = "New Level " + i + " Feature";
-                button.Name = i.ToString();
-                //button.Click = i.
+                button.Click += new RoutedEventHandler(LevelButton);
+                levelbuttons.Add(button);
 
                 levelList.Children.Add(textBlock);
                 levelList.Children.Add(listBox);
                 levelList.Children.Add(button);
             }
+        }
+
+        void LevelButton(object sender, RoutedEventArgs e)
+        {
+            StackPanel listBox = new StackPanel();
+            listBox.Orientation = Orientation.Horizontal;
+
+            TextBox textBoxn = new TextBox();
+            textBoxn.Text = "Enter feature name here";
+            TextBox textBox = new TextBox();
+            textBox.AcceptsReturn = true;
+            textBox.Text = "Enter your new feature here";
+
+            listBox.Children.Add(textBoxn);
+            listBox.Children.Add(textBox);
+
+            for (int i =0; i < 18; i++)
+            {
+                if (sender == levelbuttons[i])
+                {
+                    levelPanels[i].Children.Add(listBox);
+                }
+            }
+        }
+
+        void EquipButton(object sender, RoutedEventArgs e)
+        {
+            TextBox textBoxn = new TextBox();
+            textBoxn.Text = "Enter new equipment here";
+
+            equip.Children.Add(textBoxn);
+        }
+
+        void OProfButton(object sender, RoutedEventArgs e)
+        {
+            TextBox textBoxn = new TextBox();
+            textBoxn.Text = "Enter other proficiencies here";
+
+            oProf.Children.Add(textBoxn);
         }
 
         void BackButton(object sender, RoutedEventArgs e)
