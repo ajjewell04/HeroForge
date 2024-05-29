@@ -13,6 +13,7 @@
             <AppBarButton Name="RaceButton" Icon="Admin" Label="RaceButton" Click="AppBarButton_Click"/>
             <AppBarButton Name="BackgroundButton" Icon="AllApps" Label="BackgroundButton" Click="AppBarButton_Click"/>
         </CommandBar>
+        <Image Width="200" Height="200" Source="/Images/logo.png"/>
         <Button x:Name="NewItem" Content="Create New" Click="CreateNewButton"></Button>
         <ListBox x:Name="current" SelectionChanged="LoadItem"></ListBox>
     </StackPanel>

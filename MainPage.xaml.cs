@@ -68,7 +68,6 @@ namespace Final
         public MainPage()
         {
             this.InitializeComponent();
-
             if(GLOBALS.first)
             {
                 ListBoxItem wizard = new ListBoxItem();
