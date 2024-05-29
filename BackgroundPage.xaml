@@ -8,11 +8,29 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <ScrollViewer>
     <StackPanel>
         <Button Content="Go Back" Click="BackButton"></Button>
-        <TextBlock Text="Name"></TextBlock>
-        <StackPanel Name="ProfList"></StackPanel>
-        <TextBlock>Feature</TextBlock>
+        <TextBlock Text="Name:"></TextBlock>
+        <TextBox/>
+        <TextBlock/>
         
-    </StackPanel>
+        <TextBlock Text="Description:"></TextBlock>
+        <TextBox/>
+        <TextBlock/>
+
+
+        <TextBlock Text="Proficiencies:"></TextBlock>
+        <StackPanel Name="ProfList"></StackPanel>
+        <TextBox x:Name="AddedProf" PlaceholderText="Other"/>
+        <Button Content="Add" Click="AddClicked"/>
+        <TextBlock/>
+
+        <TextBlock Text="Feature:"/>
+        <TextBox/>
+        <TextBlock/>
+
+
+        </StackPanel>
+    </ScrollViewer>
 </Page>
