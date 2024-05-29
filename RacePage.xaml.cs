@@ -22,10 +22,77 @@ namespace Final
     /// </summary>
     public sealed partial class RacePage : Page
     {
+        List<StackPanel> traitPanels = new List<StackPanel>();
+        List<Button> traitButton = new List<Button>();
+
+        List<StackPanel> asiPanels = new List<StackPanel>();
+        List<Button> asiButton = new List<Button>();
+
         public RacePage()
         {
+
             this.InitializeComponent();
+
+            for (int i = 1; i < 21; i++)
+            {
+                TextBlock textBlock = new TextBlock();
+                textBlock.Text = "Trait " + i;
+                //textBlock.Text = i.ToString() + "butt";
+
+                StackPanel listBox = new StackPanel();
+                traitPanels.Add(listBox);
+
+                Button button = new Button();
+                button.Content = "New Trait";
+                button.Click += new RoutedEventHandler(TraitButton);
+                traitButton.Add(button);
+
+                //traitList.Children.Add(textBlock);
+                //traitList.Children.Add(listBox);
+                //traitList.Children.Add(button);
+            }
+
+            for (int i = 1; i < 6; i++)
+            {
+                TextBlock textBlock = new TextBlock();
+                textBlock.Text = "New Ability Score Increase:";
+                //textBlock.Text = i.ToString() + "butt";
+
+                StackPanel listBox = new StackPanel();
+                asiPanels.Add(listBox);
+
+                Button button = new Button();
+                button.Content = "Level " + i*4 + " ASI";
+                button.Click += new RoutedEventHandler(ASIButton);
+                asiButton.Add(button);
+
+                //asiList.Children.Add(textBlock);
+                //asiList.Children.Add(listBox);
+                //asiList.Children.Add(button);
+            }
+
         }
+
+       
+
+        void TraitButton(object sender, RoutedEventArgs e)
+        {
+            TextBox textBoxn = new TextBox();
+            textBoxn.Text = "";
+            textBoxn.AcceptsReturn = true;
+
+            trait.Children.Add(textBoxn);
+        }
+
+        void ASIButton(object sender, RoutedEventArgs e)
+        {
+            TextBox textBoxn = new TextBox();
+            textBoxn.Text = "";
+            textBoxn.AcceptsReturn = true;
+
+            ASI.Children.Add(textBoxn);
+        }
+
 
         void BackButton(object sender, RoutedEventArgs e)
         {

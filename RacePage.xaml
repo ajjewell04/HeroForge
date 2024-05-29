@@ -7,11 +7,29 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <ScrollViewer>
+        <StackPanel>
+            <Button Content="Go Back" Click="BackButton"></Button>
+            <TextBlock Text="New Race Name"></TextBlock>
+            <TextBox AcceptsReturn="True"></TextBox>
+            <TextBlock Text="Race Description"></TextBlock>
+            <TextBox AcceptsReturn="True"></TextBox>
+           
+                <TextBlock Text="Language:"></TextBlock>
+                <TextBox AcceptsReturn="True"></TextBox>
 
-    <StackPanel>
-        <Button Content="Go Back" Click="BackButton"></Button>
-        <TextBlock Text="ASI"></TextBlock>
-        <TextBlock>Features</TextBlock>
-        <ListBox></ListBox>
-    </StackPanel>
+            <TextBlock>Traits</TextBlock>
+            <StackPanel Name="trait"></StackPanel>
+            <Button Content="Add new Trait" Click="TraitButton"></Button>
+            <ListBox></ListBox>
+            <StackPanel Name ="traitList"></StackPanel>
+
+            <TextBlock>Ability Score Increase</TextBlock>
+            <StackPanel Name="ASI"></StackPanel>
+            <Button Content="Add new ASI" Click="ASIButton"></Button>
+            <ListBox></ListBox>
+            <StackPanel Name ="asiList"></StackPanel>
+
+        </StackPanel>
+    </ScrollViewer>
 </Page>
