@@ -68,7 +68,6 @@ namespace Final
         public MainPage()
         {
             this.InitializeComponent();
-
             if(GLOBALS.first)
             {
                 ListBoxItem wizard = new ListBoxItem();
@@ -95,7 +94,7 @@ namespace Final
             {
                 for(int i = 0; i < GLOBALS.classlist.Count; i++)
                 {
-                    current.Items.Add(GLOBALS.classlist[i]);
+                     current.Items.Add(GLOBALS.classlist[i]);
                 }
                 GLOBALS.listnum = 0;
             }
