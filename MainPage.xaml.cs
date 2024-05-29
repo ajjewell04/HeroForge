@@ -94,7 +94,7 @@ namespace Final
             {
                 for(int i = 0; i < GLOBALS.classlist.Count; i++)
                 {
-                     current.Items.Add(GLOBALS.classlist[i]);
+                     current.Items.Add(GLOBALS.classlist[i].Content);
                 }
                 GLOBALS.listnum = 0;
             }
@@ -102,7 +102,7 @@ namespace Final
             {
                 for (int i = 0; i < GLOBALS.racelist.Count; i++)
                 {
-                    current.Items.Add(GLOBALS.racelist[i]);
+                    current.Items.Add(GLOBALS.racelist[i].Content);
                 }
                 GLOBALS.listnum = 1;
             }
@@ -110,7 +110,7 @@ namespace Final
             {
                 for (int i = 0; i < GLOBALS.backlist.Count; i++)
                 {
-                    current.Items.Add(GLOBALS.backlist[i]);
+                    current.Items.Add(GLOBALS.backlist[i].Content);
                 }
                 GLOBALS.listnum = 2;
             }
