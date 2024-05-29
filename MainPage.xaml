@@ -7,29 +7,40 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <StackPanel Background="#4c5758">
-        <CommandBar>
-            <AppBarButton Name="ClassButton"  Label="ClassButton" Click="AppBarButton_Click">
+    <Grid Background="#4c5758" Width="432" Height="768">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="131*"></RowDefinition>
+            <RowDefinition Height="233*"></RowDefinition>
+            <RowDefinition Height="20*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="1" Source="/Assets/logo.png" Margin="0,40,0,32" Opacity=".4" Grid.RowSpan="2"/>
+        <CommandBar DefaultLabelPosition="Right" Grid.Row="2" Height="40" VerticalAlignment="Center">
+            <AppBarButton Name="HomeButton" Click="AppBarButton_Click" IsCompact="True">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="/Assets/home.ico"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Name="ClassButton" Label="Create Class" Click="AppBarButton_Click" IsCompact="True">
                 <AppBarButton.Icon>
                     <BitmapIcon UriSource="/Assets/character.ico"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton Name="RaceButton" Label="RaceButton" Click="AppBarButton_Click">
+            <AppBarButton Name="RaceButton" Label="Create Race" Click="AppBarButton_Click" IsCompact="True">
                 <AppBarButton.Icon>
                     <BitmapIcon UriSource="/Assets/class.ico"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton Name="BackgroundButton" Label="BackgroundButton" Click="AppBarButton_Click">
+            <AppBarButton Name="BackgroundButton" Label="Create Background" Click="AppBarButton_Click" IsCompact="True">
                 <AppBarButton.Icon>
                     <BitmapIcon UriSource="/Assets/background.ico"/>
                 </AppBarButton.Icon>
             </AppBarButton>
         </CommandBar>
-        <Button x:Name="NewItem" Content="Create New" Click="CreateNewButton"></Button>
-        <ListBox x:Name="current" SelectionChanged="LoadItem"></ListBox>
-        <Grid>
-            <Image Width="200" Height="200" Source="/Assets/logo.png" Margin="104,431,128,-431"/>
-        </Grid>
-    </StackPanel>
-    
+        <Button x:Name="NewItem" Content="Create New" Click="CreateNewButton" Height="32" Width="92" VerticalAlignment="Top"></Button>
+        <ListBox x:Name="current" SelectionChanged="LoadItem" Margin="-4,32,336,89"/>
+    </Grid>
+
 </Page>
