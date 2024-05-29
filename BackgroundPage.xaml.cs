@@ -26,14 +26,31 @@ namespace Final
         public BackgroundPage()
         {
             this.InitializeComponent();
-            for (int i = 0; i < 18; i++)
+            for (int i = 0; i < GLOBALS.proflist.Length; ++i)
             {
                 CheckBox checkBox = new CheckBox();
                 checkBox.Content = GLOBALS.proflist[i];
                 ProfList.Children.Add(checkBox);
             }
         }
-
+        void AddClicked(object sender, RoutedEventArgs e)
+        {
+            if (AddedProf.Text != "")
+            {
+                CheckBox checkBox = new CheckBox();
+                checkBox.Content = AddedProf.Text;
+                //bool dup = false;
+                //for (int i = 0; i < ProfList.Children.Count; ++i)
+                //{
+                //    if (AddedProf.Text == ProfList.Children.ElementAt()
+                //        dup = true;
+                //}
+                //if (!dup)
+                ProfList.Children.Add(checkBox);
+                AddedProf.Text = "";
+                AddedProf.PlaceholderText = "Other";
+            }
+        }
         void BackButton(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
