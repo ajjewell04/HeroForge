@@ -140,10 +140,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\background.ico" />
+    <Content Include="Assets\backgroundbanner.png" />
     <Content Include="Assets\character.ico" />
     <Content Include="Assets\class.ico" />
+    <Content Include="Assets\classbanner.png" />
     <Content Include="Assets\home.ico" />
+    <Content Include="Assets\homebanner.png" />
     <Content Include="Assets\logo.png" />
+    <Content Include="Assets\racebanner.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

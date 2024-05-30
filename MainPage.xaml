@@ -7,40 +7,58 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Grid Background="#4c5758" Width="432" Height="768">
+    <Grid Background="#cac5b7" Width="432" Height="768">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="131*"></RowDefinition>
-            <RowDefinition Height="233*"></RowDefinition>
-            <RowDefinition Height="20*"></RowDefinition>
+            <RowDefinition Height="128*"></RowDefinition>
+            <RowDefinition Height="429*"></RowDefinition>
+            <RowDefinition Height="171*"></RowDefinition>
+            <RowDefinition Height="40*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Image Grid.Row="1" Source="/Assets/logo.png" Margin="0,40,0,32" Opacity=".4" Grid.RowSpan="2"/>
-        <CommandBar DefaultLabelPosition="Right" Grid.Row="2" Height="40" VerticalAlignment="Center">
+        <Image Grid.Row="0" Source="/Assets/homebanner.png" Margin="0,-82,0,340" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Image Grid.Row="1" Source="/Assets/logo.png" Opacity=".25" Grid.ColumnSpan="2" Margin="116,387,116,-32" Grid.RowSpan="3"/>
+        <CommandBar DefaultLabelPosition="Right" Grid.Row="3" Height="40" VerticalAlignment="Center" Grid.ColumnSpan="2">
             <AppBarButton Name="HomeButton" Click="AppBarButton_Click" IsCompact="True">
                 <AppBarButton.Icon>
                     <BitmapIcon UriSource="/Assets/home.ico"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton Name="ClassButton" Label="Create Class" Click="AppBarButton_Click" IsCompact="True">
+            <AppBarButton Name="ClassButton" FontFamily="Old English Text MT" Label="Create Class" Click="AppBarButton_Click" IsCompact="True">
                 <AppBarButton.Icon>
                     <BitmapIcon UriSource="/Assets/character.ico"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton Name="RaceButton" Label="Create Race" Click="AppBarButton_Click" IsCompact="True">
+            <AppBarButton Name="RaceButton" FontFamily="Old English Text MT" Label="Create Race" Click="AppBarButton_Click" IsCompact="True">
                 <AppBarButton.Icon>
                     <BitmapIcon UriSource="/Assets/class.ico"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton Name="BackgroundButton" Label="Create Background" Click="AppBarButton_Click" IsCompact="True">
+            <AppBarButton Name="BackgroundButton" FontFamily="Old English Text MT" Label="Create Background" Click="AppBarButton_Click" IsCompact="True">
                 <AppBarButton.Icon>
                     <BitmapIcon UriSource="/Assets/background.ico"/>
                 </AppBarButton.Icon>
             </AppBarButton>
         </CommandBar>
-        <Button x:Name="NewItem" Content="Create New" Click="CreateNewButton" Height="32" Width="92" VerticalAlignment="Top"></Button>
-        <ListBox x:Name="current" SelectionChanged="LoadItem" Margin="-4,32,336,89"/>
+        <TextBlock FontFamily="Old English Text MT" FontWeight="ExtraBold" FontSize="30" TextAlignment="Center" Foreground="#1c2630" Grid.Column="0" Margin="0,7,0,383" Grid.Row="1">
+            <TextBlock.Inlines>
+                <Underline>Classes Created</Underline>
+            </TextBlock.Inlines>
+        </TextBlock>
+        <TextBlock FontFamily="Old English Text MT"  FontWeight="ExtraBold" FontSize="30" TextAlignment="Center" Foreground="#1c2630" Grid.Column="1" Margin="0,7,0,247" Grid.Row="1">
+            <TextBlock.Inlines>
+                <Underline>Races Created</Underline>
+            </TextBlock.Inlines>
+        </TextBlock>
+        <TextBlock FontFamily="Old English Text MT"  FontWeight="ExtraBold" FontSize="30" TextAlignment="Center" Foreground="#1c2630" Margin="80,230,73,152" Grid.Row="1" Grid.ColumnSpan="2">
+            <TextBlock.Inlines>
+                <Underline>Backgrounds Created</Underline>
+            </TextBlock.Inlines>
+        </TextBlock>
+        <ListBox Background="#cac5b7" BorderBrush="#1c2630" BorderThickness="1" x:Name="classbox" SelectionChanged="LoadItem" Margin="5,49,5,197" Grid.Row="1"/>
+        <ListBox Background="#cac5b7" BorderBrush="#1c2630" BorderThickness="1" x:Name="racebox" SelectionChanged="LoadItem" Margin="108,272,108,4" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <ListBox Background="#cac5b7" BorderBrush="#1c2630" BorderThickness="1" x:Name="backgroundbox" SelectionChanged="LoadItem" Margin="5,49,5,197" Grid.Row="1" Grid.Column="1"/>
     </Grid>
-
 </Page>

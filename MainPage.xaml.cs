@@ -89,13 +89,13 @@ namespace Final
 
         void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            current.Items.Clear();
+            classbox.Items.Clear();
 
             if (sender.Equals(ClassButton))
             {
                 for(int i = 0; i < GLOBALS.classlist.Count; i++)
                 {
-                     current.Items.Add(GLOBALS.classlist[i].Content);
+                     classbox.Items.Add(GLOBALS.classlist[i].Content);
                 }
                 GLOBALS.listnum = 0;
             }
@@ -103,7 +103,7 @@ namespace Final
             {
                 for (int i = 0; i < GLOBALS.racelist.Count; i++)
                 {
-                    current.Items.Add(GLOBALS.racelist[i].Content);
+                    classbox.Items.Add(GLOBALS.racelist[i].Content);
                 }
                 GLOBALS.listnum = 1;
             }
@@ -111,7 +111,7 @@ namespace Final
             {
                 for (int i = 0; i < GLOBALS.backlist.Count; i++)
                 {
-                    current.Items.Add(GLOBALS.backlist[i].Content);
+                    classbox.Items.Add(GLOBALS.backlist[i].Content);
                 }
                 GLOBALS.listnum = 2;
             }
@@ -138,5 +138,6 @@ namespace Final
         {
 
         }
+
     }
 }
