@@ -71,10 +71,12 @@ namespace Final
             this.InitializeComponent();
             if (GLOBALS.first)
             {
+
                 ListBoxItem wizard = new ListBoxItem();
+                wizard.FontFamily = new FontFamily("Old English Text MT");
                 wizard.Content = "Wizard";
                 GLOBALS.classlist.Add(wizard);
-
+         
                 ListBoxItem human = new ListBoxItem();
                 human.Content = "Human";
                 GLOBALS.racelist.Add(human);
@@ -84,54 +86,57 @@ namespace Final
                 GLOBALS.backlist.Add(folkhero);
 
                 GLOBALS.first = false;
+
+                for (int i = 0; i < GLOBALS.classlist.Count; i++)
+                {
+                    classbox.Items.Add(GLOBALS.classlist[i].Content);
+                }
+                for (int i = 0; i < GLOBALS.racelist.Count; i++)
+                {
+                    racebox.Items.Add(GLOBALS.racelist[i].Content);
+                }
+                for (int i = 0; i < GLOBALS.backlist.Count; i++)
+                {
+                    backgroundbox.Items.Add(GLOBALS.backlist[i].Content);
+                }
             }
         }
 
         void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             classbox.Items.Clear();
-
-            if (sender.Equals(ClassButton))
+            racebox.Items.Clear();
+            backgroundbox.Items.Clear();
+            if (sender.Equals(HomeButton))
             {
-                for(int i = 0; i < GLOBALS.classlist.Count; i++)
+                for (int i = 0; i < GLOBALS.classlist.Count; i++)
                 {
-                     classbox.Items.Add(GLOBALS.classlist[i].Content);
+                    classbox.Items.Add(GLOBALS.classlist[i].Content);
                 }
-                GLOBALS.listnum = 0;
+                for (int i = 0; i < GLOBALS.racelist.Count; i++)
+                {
+                    racebox.Items.Add(GLOBALS.racelist[i].Content);
+                }
+                for (int i = 0; i < GLOBALS.backlist.Count; i++)
+                {
+                    backgroundbox.Items.Add(GLOBALS.backlist[i].Content);
+                }
+            }
+            else if (sender.Equals(ClassButton))
+            {
+                ClassPage page = new ClassPage();
+                this.Content = page;
             }
             else if (sender.Equals(RaceButton))
             {
-                for (int i = 0; i < GLOBALS.racelist.Count; i++)
-                {
-                    classbox.Items.Add(GLOBALS.racelist[i].Content);
-                }
-                GLOBALS.listnum = 1;
+                RacePage page = new RacePage();
+                this.Content = page;
             }
             else
             {
-                for (int i = 0; i < GLOBALS.backlist.Count; i++)
-                {
-                    classbox.Items.Add(GLOBALS.backlist[i].Content);
-                }
-                GLOBALS.listnum = 2;
+                BackgroundPage page = new BackgroundPage();
+                this.Content = page;
             }
-        }
-
-        void CreateNewButton(object sender, RoutedEventArgs e)
-        {
-            switch(GLOBALS.listnum)
-            {
-                case 0:
-                    Frame.Navigate(typeof(ClassPage));
-                    break;
-                case 1:
-                    Frame.Navigate(typeof(RacePage));
-                    break;
-                default:
-                    Frame.Navigate(typeof(BackgroundPage));
-                    break;
-            }
-            
         }
 
         void LoadItem(object sender, RoutedEventArgs e)

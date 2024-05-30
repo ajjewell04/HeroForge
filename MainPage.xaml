@@ -57,8 +57,8 @@
                 <Underline>Backgrounds Created</Underline>
             </TextBlock.Inlines>
         </TextBlock>
-        <ListBox Background="#cac5b7" BorderBrush="#1c2630" BorderThickness="1" x:Name="classbox" SelectionChanged="LoadItem" Margin="5,49,5,197" Grid.Row="1"/>
-        <ListBox Background="#cac5b7" BorderBrush="#1c2630" BorderThickness="1" x:Name="racebox" SelectionChanged="LoadItem" Margin="108,272,108,4" Grid.Row="1" Grid.ColumnSpan="2"/>
-        <ListBox Background="#cac5b7" BorderBrush="#1c2630" BorderThickness="1" x:Name="backgroundbox" SelectionChanged="LoadItem" Margin="5,49,5,197" Grid.Row="1" Grid.Column="1"/>
+        <ListBox Background="#cac5b7" BorderBrush="#1c2630" BorderThickness="1" x:Name="classbox" SelectionChanged="LoadItem" Margin="5,49,5,197" Grid.Row="1" FontFamily="Old English Text MT"/>
+        <ListBox Background="#cac5b7" BorderBrush="#1c2630" BorderThickness="1" x:Name="backgroundbox" SelectionChanged="LoadItem" Margin="108,272,108,4" Grid.Row="1" Grid.ColumnSpan="2" FontFamily="Old English Text MT"/>
+        <ListBox Background="#cac5b7" BorderBrush="#1c2630" BorderThickness="1" x:Name="racebox" SelectionChanged="LoadItem" Margin="5,49,5,197" Grid.Row="1" Grid.Column="1" FontFamily="Old English Text MT"/>
     </Grid>
 </Page>
