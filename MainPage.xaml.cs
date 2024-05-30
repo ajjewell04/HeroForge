@@ -86,19 +86,18 @@ namespace Final
                 GLOBALS.backlist.Add(folkhero);
 
                 GLOBALS.first = false;
-
-                for (int i = 0; i < GLOBALS.classlist.Count; i++)
-                {
-                    classbox.Items.Add(GLOBALS.classlist[i].Content);
-                }
-                for (int i = 0; i < GLOBALS.racelist.Count; i++)
-                {
-                    racebox.Items.Add(GLOBALS.racelist[i].Content);
-                }
-                for (int i = 0; i < GLOBALS.backlist.Count; i++)
-                {
-                    backgroundbox.Items.Add(GLOBALS.backlist[i].Content);
-                }
+            }
+            for (int i = 0; i < GLOBALS.classlist.Count; i++)
+            {
+                classbox.Items.Add(GLOBALS.classlist[i].Content);
+            }
+            for (int i = 0; i < GLOBALS.racelist.Count; i++)
+            {
+                racebox.Items.Add(GLOBALS.racelist[i].Content);
+            }
+            for (int i = 0; i < GLOBALS.backlist.Count; i++)
+            {
+                backgroundbox.Items.Add(GLOBALS.backlist[i].Content);
             }
         }
 

@@ -40,7 +40,7 @@ namespace Final
             {
                 TextBlock textBlock = new TextBlock();
                 textBlock.Text = "Level " + i + " features:";
-                //textBlock.Text = i.ToString() + "butt";
+                textBlock.Text = i.ToString() + "butt";
 
                 StackPanel listBox = new StackPanel();
                 levelPanels.Add(listBox);
@@ -98,6 +98,29 @@ namespace Final
         void BackButton(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+        void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender.Equals(HomeButton))
+            {
+                MainPage page = new MainPage();
+                this.Content = page;
+            }
+            else if (sender.Equals(ClassButton))
+            {
+                ClassPage page = new ClassPage();
+                this.Content = page;
+            }
+            else if (sender.Equals(RaceButton))
+            {
+                RacePage page = new RacePage();
+                this.Content = page;
+            }
+            else
+            {
+                BackgroundPage page = new BackgroundPage();
+                this.Content = page;
+            }
         }
     }
 }

@@ -37,7 +37,7 @@ namespace Final
             {
                 TextBlock textBlock = new TextBlock();
                 textBlock.Text = "Trait " + i;
-                //textBlock.Text = i.ToString() + "butt";
+                textBlock.Text = i.ToString() + "butt";
 
                 StackPanel listBox = new StackPanel();
                 traitPanels.Add(listBox);
@@ -47,17 +47,17 @@ namespace Final
                 button.Click += new RoutedEventHandler(TraitButton);
                 traitButton.Add(button);
 
-                //traitList.Children.Add(textBlock);
-                //traitList.Children.Add(listBox);
-                //traitList.Children.Add(button);
+                traitList.Children.Add(textBlock);
+                traitList.Children.Add(listBox);
+                traitList.Children.Add(button);
             }
 
             for (int i = 1; i < 6; i++)
             {
                 TextBlock textBlock = new TextBlock();
                 textBlock.Text = "New Ability Score Increase:";
-                //textBlock.Text = i.ToString() + "butt";
-
+                textBlock.Text = i.ToString() + "butt";
+                
                 StackPanel listBox = new StackPanel();
                 asiPanels.Add(listBox);
 
@@ -66,9 +66,9 @@ namespace Final
                 button.Click += new RoutedEventHandler(ASIButton);
                 asiButton.Add(button);
 
-                //asiList.Children.Add(textBlock);
-                //asiList.Children.Add(listBox);
-                //asiList.Children.Add(button);
+                asiList.Children.Add(textBlock);
+                asiList.Children.Add(listBox);
+                asiList.Children.Add(button);
             }
 
         }
@@ -94,9 +94,28 @@ namespace Final
         }
 
 
-        void BackButton(object sender, RoutedEventArgs e)
+        void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            if (sender.Equals(HomeButton))
+            {
+                MainPage page = new MainPage();
+                this.Content = page;
+            }
+            else if (sender.Equals(ClassButton))
+            {
+                ClassPage page = new ClassPage();
+                this.Content = page;
+            }
+            else if (sender.Equals(RaceButton))
+            {
+                RacePage page = new RacePage();
+                this.Content = page;
+            }
+            else
+            {
+                BackgroundPage page = new BackgroundPage();
+                this.Content = page;
+            }
         }
     }
 }

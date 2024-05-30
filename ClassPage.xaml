@@ -7,27 +7,64 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <ScrollViewer>
-    <StackPanel>
-        <Button Content="Go Back" Click="BackButton"></Button>
-            <TextBox Text="New Class"></TextBox>
-            <TextBlock Text="Class Description"></TextBlock>
-            <TextBox AcceptsReturn="True"></TextBox>
-        <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Proficiencies: Choose "></TextBlock>
-                <TextBox TextWrapping="Wrap"></TextBox>
+
+    <Grid Background="#cac5b7" Width="432" Height="768">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="128*"></RowDefinition>
+            <RowDefinition Height="429*"></RowDefinition>
+            <RowDefinition Height="171*"></RowDefinition>
+            <RowDefinition Height="40*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Source="/Assets/classbanner.png" Margin="0,-82,0,340" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Image Grid.Row="1" Source="/Assets/logo.png" Opacity=".25" Grid.ColumnSpan="2" Margin="116,387,116,-32" Grid.RowSpan="3"/>
+        <CommandBar DefaultLabelPosition="Right" Grid.Row="3" Height="40" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <AppBarButton Name="HomeButton" Click="AppBarButton_Click" IsCompact="True">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="/Assets/home.ico"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Name="ClassButton" FontFamily="Old English Text MT" Label="Create Class" Click="AppBarButton_Click" IsCompact="True">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="/Assets/character.ico"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Name="RaceButton" FontFamily="Old English Text MT" Label="Create Race" Click="AppBarButton_Click" IsCompact="True">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="/Assets/class.ico"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton Name="BackgroundButton" FontFamily="Old English Text MT" Label="Create Background" Click="AppBarButton_Click" IsCompact="True">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="/Assets/background.ico"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+        </CommandBar>
+        <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <StackPanel>
+                <TextBlock Foreground="#1c2630" Text="Class Name"></TextBlock>
+                <TextBox AcceptsReturn="True"></TextBox>
+                <TextBlock Foreground="#1c2630" Text="Class Description"></TextBlock>
+                <TextBox AcceptsReturn="True"></TextBox>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Foreground="#1c2630" Text="Proficiencies: Choose "></TextBlock>
+                    <TextBox TextWrapping="Wrap"></TextBox>
+                </StackPanel>
+
+                <StackPanel Name="ProfList"></StackPanel>
+                <TextBlock Foreground="#1c2630" Text="Other Proficiencies"></TextBlock>
+                <StackPanel Name="oProf"></StackPanel>
+                <Button Foreground="#1c2630" Content="Add Other Proficiency" Click="OProfButton"></Button>
+                <TextBlock Foreground="#1c2630">Equipment</TextBlock>
+                <StackPanel Name="equip"></StackPanel>
+                <Button Foreground="#1c2630" Content="Add new Equipment" Click="EquipButton"></Button>
+                <ListBox></ListBox>
+                <TextBlock Foreground="#1c2630">Features</TextBlock>
+                <StackPanel Name ="levelList"></StackPanel>
             </StackPanel>
-        
-        <StackPanel Name="ProfList"></StackPanel>
-        <TextBlock Text="Other Proficiencies"></TextBlock>
-            <StackPanel Name="oProf"></StackPanel>
-            <Button Content="Add Other Proficiency" Click="OProfButton"></Button>
-        <TextBlock>Equipment</TextBlock>
-            <StackPanel Name="equip"></StackPanel>
-            <Button Content="Add new Equipment" Click="EquipButton"></Button>
-            <ListBox></ListBox>
-        <TextBlock>Features</TextBlock>
-        <StackPanel Name ="levelList"></StackPanel>
-    </StackPanel>
-    </ScrollViewer>
+        </ScrollViewer>
+    </Grid>
 </Page>

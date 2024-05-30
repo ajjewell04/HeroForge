@@ -55,5 +55,28 @@ namespace Final
         {
             Frame.Navigate(typeof(MainPage));
         }
+        void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender.Equals(HomeButton))
+            {
+                MainPage page = new MainPage();
+                this.Content = page;
+            }
+            else if (sender.Equals(ClassButton))
+            {
+                ClassPage page = new ClassPage();
+                this.Content = page;
+            }
+            else if (sender.Equals(RaceButton))
+            {
+                RacePage page = new RacePage();
+                this.Content = page;
+            }
+            else
+            {
+                BackgroundPage page = new BackgroundPage();
+                this.Content = page;
+            }
+        }
     }
 }
