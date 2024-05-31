@@ -32,31 +32,39 @@ namespace Final
                 checkBox.Content = GLOBALS.proflist[i];
                 ProfList.Children.Add(checkBox);
             }
-        }
-        void AddClicked(object sender, RoutedEventArgs e)
-        {
-            if (AddedProf.Text != "")
+
+            if (GLOBALS.listindex != -1)
             {
-                CheckBox checkBox = new CheckBox();
-                checkBox.Content = AddedProf.Text;
-                //bool dup = false;
-                //for (int i = 0; i < ProfList.Children.Count; ++i)
-                //{
-                //    if (AddedProf.Text == ProfList.Children.ElementAt()
-                //        dup = true;
-                //}
-                //if (!dup)
-                ProfList.Children.Add(checkBox);
-                AddedProf.Text = "";
-                AddedProf.PlaceholderText = "Other";
+                LoadBack();
             }
         }
-        void BackButton(object sender, RoutedEventArgs e)
+
+        void AddClicked(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            TextBox textBox = new TextBox();
+            
+            textBox.TextWrapping = TextWrapping.Wrap;
+            textBox.AcceptsReturn = true;
+            
+
+            if(sender.Equals(profbutt))
+            {
+                textBox.Text = "Enter new proficiency";
+                oProfs.Children.Add(textBox);
+            }
+            else
+            {
+                textBox.Text = "Add new equipment";
+                equip.Children.Add(textBox);
+            }
         }
+
         void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
+            SaveBack();
+
+            GLOBALS.listindex = -1;
+
             if (sender.Equals(HomeButton))
             {
                 MainPage page = new MainPage();
@@ -76,6 +84,113 @@ namespace Final
             {
                 BackgroundPage page = new BackgroundPage();
                 this.Content = page;
+            }
+        }
+
+        void SaveBack()
+        {
+            if (GLOBALS.listindex == -1)
+            {
+                GLOBALS.currb = new GLOBALS.Background();
+                GLOBALS.backgrounds.Add(GLOBALS.currb);
+
+                ListBoxItem listBox = new ListBoxItem();
+                GLOBALS.backlist.Add(listBox);
+
+                GLOBALS.listindex = GLOBALS.backgrounds.Count - 1;
+            }
+
+
+            if (Backname.Text == "")
+            {
+                Backname.Text = "Unnamed Background";
+            }
+
+
+
+            GLOBALS.currb.name = Backname.Text;
+            GLOBALS.backlist[GLOBALS.listindex].Content = Backname.Text;
+            GLOBALS.currb.desc = Backdesc.Text;
+            GLOBALS.currb.feat = Backfeat.Text;
+
+            int i = 0;
+            foreach (CheckBox c in ProfList.Children)
+            {
+                if (c.IsChecked == true)
+                {
+                    GLOBALS.currb.prof[i] = true;
+                }
+                else
+                {
+                    GLOBALS.currb.prof[i] = false;
+                }
+
+                i++;
+            }
+            
+            i = 0;
+            foreach (TextBox t in equip.Children)
+            {
+                if (GLOBALS.currb.equipment.Count < i)
+                    GLOBALS.currb.equipment[i] = t.Text;
+                else
+                    GLOBALS.currb.equipment.Add(t.Text);
+
+                i++;
+            }
+
+            i = 0;
+            foreach (TextBox t in oProfs.Children)
+            {
+                if (GLOBALS.currb.oprof.Count < i)
+                    GLOBALS.currb.oprof[i] = t.Text;
+                else
+                    GLOBALS.currb.oprof.Add(t.Text);
+
+                i++;
+            }
+        }
+
+        void LoadBack()
+        {
+            Backname.Text = GLOBALS.currb.name;
+            Backdesc.Text = GLOBALS.currb.desc;
+            Backfeat.Text = GLOBALS.currb.feat;
+
+            int i = 0;
+            foreach (CheckBox c in ProfList.Children)
+            {
+                if (GLOBALS.currb.prof[i])
+                {
+                    c.IsChecked = true;
+                }
+                else
+                {
+                    c.IsChecked = false;
+                }
+
+                i++;
+            }
+
+
+            for (i = 0; i < GLOBALS.currb.equipment.Count; i++)
+            {
+                TextBox textBoxn = new TextBox();
+                textBoxn.Text = GLOBALS.currb.equipment[i];
+                textBoxn.AcceptsReturn = true;
+                textBoxn.TextWrapping = TextWrapping.Wrap;
+
+                equip.Children.Add(textBoxn);
+            }
+
+            for (i = 0; i < GLOBALS.currb.oprof.Count; i++)
+            {
+                TextBox textBoxn = new TextBox();
+                textBoxn.Text = GLOBALS.currb.oprof[i];
+                textBoxn.AcceptsReturn = true;
+                textBoxn.TextWrapping = TextWrapping.Wrap;
+
+                oProfs.Children.Add(textBoxn);
             }
         }
     }

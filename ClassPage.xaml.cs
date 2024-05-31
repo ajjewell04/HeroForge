@@ -300,7 +300,6 @@ namespace Final
                 i++;
             }
 
-            
             for(i = 0; i < GLOBALS.currc.equipment.Count; i++)
             {
                 TextBox textBoxn = new TextBox();

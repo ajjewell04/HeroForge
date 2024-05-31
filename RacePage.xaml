@@ -44,25 +44,60 @@
         </CommandBar>
         <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <StackPanel>
-                <TextBlock Foreground="#1c2630" Text="New Race Name"></TextBlock>
-                <TextBox Foreground="#1c2630" AcceptsReturn="True"></TextBox>
-                <TextBlock Foreground="#1c2630" Text="Race Description"></TextBlock>
-                <TextBox Foreground="#1c2630" AcceptsReturn="True"></TextBox>
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Margin" Value="0,20,0,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <TextBlock FontWeight="Bold" Foreground="#1c2630" Text="New Race Name"></TextBlock>
+                <TextBox Name="Racename" TextWrapping="Wrap" Foreground="#1c2630" AcceptsReturn="True"></TextBox>
+                <TextBlock FontWeight="Bold" Foreground="#1c2630" Text="Race Description"></TextBlock>
+                <TextBox Name="Racedesc" TextWrapping="Wrap" Foreground="#1c2630" AcceptsReturn="True"></TextBox>
 
-                <TextBlock Foreground="#1c2630" Text="Language:"></TextBlock>
-                <TextBox AcceptsReturn="True"></TextBox>
+                <TextBlock FontWeight="Bold" Foreground="#1c2630" Text="Speed"></TextBlock>
+                <TextBox Name="Racespeed" AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
 
-                <TextBlock Foreground="#1c2630">Traits</TextBlock>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width ="100" FontWeight="Bold">Strength</TextBlock>
+                        <TextBox Margin="2,16" TextWrapping="Wrap" x:Name="str"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width ="100" FontWeight="Bold">Dexterity</TextBlock>
+                        <TextBox Margin="2,16" TextWrapping="Wrap" x:Name="dex"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width ="100" FontWeight="Bold">Constitution</TextBlock>
+                        <TextBox Margin="2,16" TextWrapping="Wrap" x:Name="con"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width ="100" FontWeight="Bold">Intelligence</TextBlock>
+                        <TextBox Margin="2,16" TextWrapping="Wrap" x:Name="intel"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width ="100" FontWeight="Bold">Wisdom</TextBlock>
+                        <TextBox Margin="2,16" TextWrapping="Wrap" x:Name="wis"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width ="100" FontWeight="Bold">Charisma</TextBlock>
+                        <TextBox Margin="2,16" TextWrapping="Wrap" x:Name="cha"></TextBox>
+                    </StackPanel>
+                </StackPanel>
+
+                <TextBlock FontWeight="Bold" Foreground="#1c2630" Text="Languages"></TextBlock>
+                <TextBox Name="Racelang" AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
+
+                <TextBlock FontWeight="Bold" Foreground="#1c2630">Traits</TextBlock>
                 <StackPanel Name="trait"></StackPanel>
                 <Button Foreground="#1c2630" Content="Add new Trait" Click="TraitButton"></Button>
                 <ListBox></ListBox>
                 <StackPanel Name ="traitList"></StackPanel>
 
-                <TextBlock Foreground="#1c2630">Ability Score Increase</TextBlock>
-                <StackPanel Name="ASI"></StackPanel>
-                <Button Foreground="#1c2630" Content="Add new ASI" Click="ASIButton"></Button>
+                <!--<TextBlock Foreground="#1c2630">Ability Score Increase</TextBlock>-->
+                <!--<StackPanel Name="ASI"></StackPanel>
+                //<Button Foreground="#1c2630" Content="Add new ASI" Click="ASIButton"></Button>
                 <ListBox></ListBox>
-                <StackPanel Name ="asiList"></StackPanel>
+                <StackPanel Name ="asiList"></StackPanel>-->
 
             </StackPanel>
         </ScrollViewer>

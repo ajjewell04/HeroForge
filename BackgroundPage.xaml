@@ -44,23 +44,28 @@
         </CommandBar>
         <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <StackPanel>
-                <TextBlock Foreground="#1c2630" Text="Name:"></TextBlock>
-                <TextBox/>
+                <TextBlock FontWeight="Bold" Foreground="#1c2630" Text="Name:"></TextBlock>
+                <TextBox TextWrapping="Wrap" Name="Backname"/>
                 <TextBlock/>
 
-                <TextBlock Foreground="#1c2630" Text="Description:"></TextBlock>
-                <TextBox/>
+                <TextBlock  FontWeight="Bold" Foreground="#1c2630" Text="Description:"></TextBlock>
+                <TextBox TextWrapping="Wrap" Name="Backdesc" AcceptsReturn="True"/>
                 <TextBlock/>
 
 
-                <TextBlock Foreground="#1c2630" Text="Proficiencies:"></TextBlock>
+                <TextBlock FontWeight="Bold" Foreground="#1c2630" Text="Proficiencies:"></TextBlock>
                 <StackPanel Name="ProfList"></StackPanel>
-                <TextBox x:Name="AddedProf" PlaceholderText="Other"/>
-                <Button Foreground="#1c2630" Content="Add" Click="AddClicked"/>
+                <TextBlock FontWeight="Bold" Text="Other Proficiencies"/>
+                <StackPanel x:Name="oProfs"></StackPanel>
+                <Button Name="profbutt" Foreground="#1c2630" Content="Add Other Proficiencies" Click="AddClicked"/>
+                <TextBlock/>
+                <TextBlock FontWeight="Bold" Text="Equipment"/>
+                <StackPanel x:Name="equip"></StackPanel>
+                <Button Foreground="#1c2630" Content="Add Equipment" Click="AddClicked"/>
                 <TextBlock/>
 
-                <TextBlock Foreground="#1c2630" Text="Feature:"/>
-                <TextBox/>
+                <TextBlock FontWeight="Bold" Foreground="#1c2630" Text="Feature:"/>
+                <TextBox Name="Backfeat" TextWrapping="Wrap" AcceptsReturn="True"/>
                 <TextBlock/>
 
 
