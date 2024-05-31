@@ -45,24 +45,36 @@
         </CommandBar>
         <ScrollViewer Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <StackPanel>
-                <TextBlock Foreground="#1c2630" Text="Class Name"></TextBlock>
-                <TextBox AcceptsReturn="True"></TextBox>
-                <TextBlock Foreground="#1c2630" Text="Class Description"></TextBlock>
-                <TextBox AcceptsReturn="True"></TextBox>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Foreground="#1c2630" Text="Proficiencies: Choose "></TextBlock>
-                    <TextBox TextWrapping="Wrap"></TextBox>
-                </StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Margin" Value="0,20,0,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <TextBlock  FontWeight ="Bold" Foreground="#1c2630" Text="Class Name"></TextBlock>
+                <TextBox Name ="Classname" AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
+                <TextBlock FontWeight ="Bold" Foreground="#1c2630" Text="Class Description"></TextBlock>
+                <TextBox Name ="Classdesc" AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
 
+
+                <TextBlock FontWeight ="Bold" Foreground="#1c2630" Text="Hit Points Per Level"></TextBlock>
+                <TextBox Name ="Classhp" AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
+
+                <TextBlock FontWeight ="Bold" Foreground="#1c2630" Text="Saving Throws"></TextBlock>
+                <StackPanel Name="SaveList"></StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Foreground="#1c2630"><Bold>Proficiencies:</Bold> Choose</TextBlock>
+                    <TextBox Name ="Classprof" TextWrapping="Wrap" Margin="5,16"></TextBox>
+                </StackPanel>
                 <StackPanel Name="ProfList"></StackPanel>
-                <TextBlock Foreground="#1c2630" Text="Other Proficiencies"></TextBlock>
+                <TextBlock FontWeight ="Bold" Foreground="#1c2630" Text="Other Proficiencies"></TextBlock>
                 <StackPanel Name="oProf"></StackPanel>
                 <Button Foreground="#1c2630" Content="Add Other Proficiency" Click="OProfButton"></Button>
-                <TextBlock Foreground="#1c2630">Equipment</TextBlock>
+                <TextBlock FontWeight ="Bold" Foreground="#1c2630">Equipment</TextBlock>
                 <StackPanel Name="equip"></StackPanel>
                 <Button Foreground="#1c2630" Content="Add new Equipment" Click="EquipButton"></Button>
                 <ListBox></ListBox>
-                <TextBlock Foreground="#1c2630">Features</TextBlock>
+                <TextBlock FontWeight ="Bold" Foreground="#1c2630">Features</TextBlock>
                 <StackPanel Name ="levelList"></StackPanel>
             </StackPanel>
         </ScrollViewer>

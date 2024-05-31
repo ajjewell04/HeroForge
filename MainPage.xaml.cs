@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Runtime.ExceptionServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Devices.Enumeration;
@@ -27,32 +28,72 @@ namespace Final
     {
         public class Background
         {
-            string name;
-            int[] prof;
-            string equipment;
-            string featName;
-            string feat;
+            public string name;
+            public string desc;
+
+            public bool[] prof = new bool[18];
+            public List<string> equipment = new List<string>();
+            public string feat;
         }
 
         public class Race
         {
-            string name;
-            int[] asi;
-            string[] feats;
+            public string name;
+            public string[] asi = new string[6];
+            public List<string> feats = new List<string>();
         }
 
         public class Classes
         {
-            public string name;
-            int[] prof;
-            List<List<string>> feats;
+            public Classes() 
+            {
+                for (int i = 0; i < 20; i++)
+                    feats[i] = new List<Pair<string, string>>();
+            }
+
+            public string name = "";
+            public string desc = "";
+
+            public string hp = "";
+
+            public bool[] saves = new bool[6];
+
+            public string profnum = "";
+            public bool[] prof = new bool[18];
+
+            public List<string> equipment = new List<string>();
+            public List<string> oprof = new List<string>();
+
+            public List<Pair<string,string>>[] feats = new List<Pair<string, string>>[20];
         }
 
-        public static int listnum = 0;
+        public class Pair<T, U>
+        {
+            public Pair()
+            {
+            }
+
+            public Pair(T first, U second)
+            {
+                this.First = first;
+                this.Second = second;
+            }
+
+            public T First { get; set; }
+            public U Second { get; set; }
+        };
+
+        public static int listindex = -1;
+
+        public static Classes currc;
         public static List<Classes> classes = new List<Classes>();
         public static List<ListBoxItem> classlist = new List<ListBoxItem>();
+
+        public static Race currr;
         public static List<Race> races = new List<Race>();
         public static List<ListBoxItem> racelist = new List<ListBoxItem>();
+
+        public static Background currb;
         public static List<Background> backgrounds = new List<Background>();
         public static List<ListBoxItem> backlist = new List<ListBoxItem>();
 
@@ -60,6 +101,7 @@ namespace Final
                                                             "History","Insight","Intimidation","Investigation","Medicine","Nature",
                                                             "Perception","Performance","Persuasion","Religon","Sleight of Hand",
                                                             "Stealth","Survival"};
+        public static string[] abi = new string[6] { "Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma" };
 
         public static bool first = true;
     }
@@ -72,21 +114,13 @@ namespace Final
             if (GLOBALS.first)
             {
 
-                ListBoxItem wizard = new ListBoxItem();
-                wizard.FontFamily = new FontFamily("Old English Text MT");
-                wizard.Content = "Wizard";
-                GLOBALS.classlist.Add(wizard);
-         
-                ListBoxItem human = new ListBoxItem();
-                human.Content = "Human";
-                GLOBALS.racelist.Add(human);
-
-                ListBoxItem folkhero = new ListBoxItem();
-                folkhero.Content = "Folk Hero";
-                GLOBALS.backlist.Add(folkhero);
+                InitWizard();
+                InitHuman();
+                InitFolkHero();
 
                 GLOBALS.first = false;
             }
+
             for (int i = 0; i < GLOBALS.classlist.Count; i++)
             {
                 classbox.Items.Add(GLOBALS.classlist[i].Content);
@@ -106,6 +140,9 @@ namespace Final
             classbox.Items.Clear();
             racebox.Items.Clear();
             backgroundbox.Items.Clear();
+
+            GLOBALS.listindex = -1;
+
             if (sender.Equals(HomeButton))
             {
                 for (int i = 0; i < GLOBALS.classlist.Count; i++)
@@ -140,8 +177,87 @@ namespace Final
 
         void LoadItem(object sender, RoutedEventArgs e)
         {
-
+            if(sender.Equals(classbox))
+            {
+                GLOBALS.listindex = classbox.SelectedIndex;
+                GLOBALS.currc = GLOBALS.classes[GLOBALS.listindex];
+                ClassPage page = new ClassPage();
+                this.Content = page;
+            }
+            else if(sender.Equals(racebox))
+            {
+                GLOBALS.listindex = racebox.SelectedIndex;
+                GLOBALS.currr = GLOBALS.races[GLOBALS.listindex];
+                ClassPage page = new ClassPage();
+                this.Content = page;
+            }
+            else
+            {
+                GLOBALS.listindex = backgroundbox.SelectedIndex;
+                GLOBALS.currb = GLOBALS.backgrounds[GLOBALS.listindex];
+                BackgroundPage page = new BackgroundPage();
+                this.Content = page;
+            }
         }
 
+        void InitWizard()
+        {
+            ListBoxItem wizard = new ListBoxItem();
+            wizard.FontFamily = new FontFamily("Old English Text MT");
+            wizard.Content = "Wizard(Prebuilt)";
+            GLOBALS.classlist.Add(wizard);
+
+            GLOBALS.Classes wiz = new GLOBALS.Classes();
+            GLOBALS.classes.Add(wiz);
+
+            wiz.name = "Wizard(Prebuilt)";
+            wiz.desc = "Wizards are supreme magic-users, defined and united as a class by the spells they cast. Drawing on the subtle weave of magic that permeates the cosmos, wizards cast spells of explosive fire, arcing lightning, subtle deception, brute-force mind control, and much more.";
+            wiz.hp = "1d6 + Con per level";
+
+            wiz.saves[3] = true;
+            wiz.saves[4] = true;
+
+            wiz.oprof.Add("Daggers");
+            wiz.oprof.Add("Darts");
+            wiz.oprof.Add("Slings");
+            wiz.oprof.Add("Quarterstaffs");
+            wiz.oprof.Add("Light Crossbows");
+
+            wiz.equipment.Add("(a) a quarterstaff or (b) a dagger");
+            wiz.equipment.Add("(a) a component pouch or (b) an arcane focus");
+            wiz.equipment.Add("(a) a scholar's pack or (b) an explorer's pack");
+            wiz.equipment.Add("A spellbook");
+
+            wiz.profnum = "2";
+            wiz.prof[2] = true;
+            wiz.prof[5] = true;
+            wiz.prof[6] = true;
+            wiz.prof[8] = true;
+            wiz.prof[9] = true; 
+            wiz.prof[14] = true;
+
+            wiz.feats[0].Add(new GLOBALS.Pair<string, string>("Spellcasting", "As a student of arcane magic, you have a spellbook containing spells that show the first glimmerings of your true power."));
+            wiz.feats[0].Add(new GLOBALS.Pair<string, string>("Ritual Casting", "You can cast a wizard spell as a ritual if that spell has the ritual tag and you have the spell in your spellbook. You don't need to have the spell prepared."));
+            wiz.feats[0].Add(new GLOBALS.Pair<string, string>("Arcane Recovery", "You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.\r\n\r\nFor example, if you're a 4th-level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots."));
+            wiz.feats[1].Add(new GLOBALS.Pair<string, string>("Arcane Tradition", "When you reach 2nd level, you choose an arcane tradition, shaping your practice of magic through one of the following schools. Your choice grants you features at 2nd level and again at 6th, 10th, and 14th level."));
+            wiz.feats[2].Add(new GLOBALS.Pair<string, string>("Cantrip Formulas (Optional)", "At 3rd level, you have scribed a set of arcane formulas in your spellbook that you can use to formulate a cantrip in your mind. Whenever you finish a long rest and consult those formulas in your spellbook, you can replace one wizard cantrip you know with another cantrip from the wizard spell list."));
+            wiz.feats[3].Add(new GLOBALS.Pair<string, string>("Ability Score Improvement", "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."));
+            wiz.feats[17].Add(new GLOBALS.Pair<string, string>("Spell Mastery", "At 18th level, you have achieved such mastery over certain spells that you can cast them at will. Choose a 1st-level wizard spell and a 2nd-level wizard spell that are in your spellbook. You can cast those spells at their lowest level without expending a spell slot when you have them prepared. If you want to cast either spell at a higher level, you must expend a spell slot as normal.\r\n\r\nBy spending 8 hours in study, you can exchange one or both of the spells you chose for different spells of the same levels."));
+            wiz.feats[19].Add(new GLOBALS.Pair<string, string>("Signature Spells", "When you reach 20th level, you gain mastery over two powerful spells and can cast them with little effort. Choose two 3rd-level wizard spells in your spellbook as your signature spells. You always have these spells prepared, they don't count against the number of spells you have prepared, and you can cast each of them once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest.\r\n\r\nIf you want to cast either spell at a higher level, you must expend a spell slot as normal."));
+        }
+
+        void InitHuman()
+        {
+            ListBoxItem human = new ListBoxItem();
+            human.Content = "Human";
+            GLOBALS.racelist.Add(human);
+        }
+
+        void InitFolkHero()
+        {
+            ListBoxItem folkhero = new ListBoxItem();
+            folkhero.Content = "Folk Hero";
+            GLOBALS.backlist.Add(folkhero);
+        }
     }
 }
