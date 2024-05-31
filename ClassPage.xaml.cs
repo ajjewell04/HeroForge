@@ -40,7 +40,7 @@ namespace Final
             {
                 TextBlock textBlock = new TextBlock();
                 textBlock.Text = "Level " + i + " features:";
-                textBlock.Text = i.ToString() + "butt";
+                textBlock.Text = "Level " + i.ToString() + " Features:";
 
                 StackPanel listBox = new StackPanel();
                 levelPanels.Add(listBox);

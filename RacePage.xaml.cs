@@ -37,7 +37,7 @@ namespace Final
             {
                 TextBlock textBlock = new TextBlock();
                 textBlock.Text = "Trait " + i;
-                textBlock.Text = i.ToString() + "butt";
+                textBlock.Text = "Trait " + i.ToString() + ":";
 
                 StackPanel listBox = new StackPanel();
                 traitPanels.Add(listBox);
@@ -56,7 +56,7 @@ namespace Final
             {
                 TextBlock textBlock = new TextBlock();
                 textBlock.Text = "New Ability Score Increase:";
-                textBlock.Text = i.ToString() + "butt";
+                textBlock.Text = "Trait " + i.ToString();
                 
                 StackPanel listBox = new StackPanel();
                 asiPanels.Add(listBox);

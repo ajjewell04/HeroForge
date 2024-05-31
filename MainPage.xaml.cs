@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
@@ -124,6 +125,8 @@ namespace Final
             else if (sender.Equals(ClassButton))
             {
                 ClassPage page = new ClassPage();
+                page.Transitions = new TransitionCollection();
+
                 this.Content = page;
             }
             else if (sender.Equals(RaceButton))
