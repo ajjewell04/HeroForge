@@ -67,7 +67,7 @@
                     <TextBox Name ="Classprof" TextWrapping="Wrap" Margin="5,16"></TextBox>
                 </StackPanel>
                 <StackPanel Name="ProfList"></StackPanel>
-                <TextBlock FontWeight ="Bold" Foreground="#1c2630" Text="Other Proficiencies"></TextBlock>
+                <TextBlock FontWeight ="Bold" Foreground="#1c2630" Text="Other Proficiencies" ></TextBlock>
                 <StackPanel Name="oProf"></StackPanel>
                 <Button Foreground="#1c2630" Content="Add Other Proficiency" Click="OProfButton"></Button>
                 <TextBlock FontWeight ="Bold" Foreground="#1c2630">Equipment</TextBlock>
@@ -76,6 +76,7 @@
                 <ListBox></ListBox>
                 <TextBlock FontWeight ="Bold" Foreground="#1c2630">Features</TextBlock>
                 <StackPanel Name ="levelList"></StackPanel>
+                <Button Foreground="#1c2630" Content="Save" Click="SaveClass" HorizontalAlignment="Right" />
             </StackPanel>
         </ScrollViewer>
     </Grid>

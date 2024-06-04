@@ -92,6 +92,7 @@
                 <Button Foreground="#1c2630" Content="Add new Trait" Click="TraitButton"></Button>
                 <ListBox></ListBox>
                 <StackPanel Name ="traitList"></StackPanel>
+                <Button Foreground="#1c2630" Content="Save" Click="SaveRace" HorizontalAlignment="Right" />
 
                 <!--<TextBlock Foreground="#1c2630">Ability Score Increase</TextBlock>-->
                 <!--<StackPanel Name="ASI"></StackPanel>

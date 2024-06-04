@@ -61,8 +61,6 @@ namespace Final
 
         void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            SaveBack();
-
             GLOBALS.listindex = -1;
 
             if (sender.Equals(HomeButton))
@@ -87,7 +85,7 @@ namespace Final
             }
         }
 
-        void SaveBack()
+        void SaveBack(object sender, RoutedEventArgs e)
         {
             if (GLOBALS.listindex == -1)
             {
@@ -131,7 +129,7 @@ namespace Final
             i = 0;
             foreach (TextBox t in equip.Children)
             {
-                if (GLOBALS.currb.equipment.Count < i)
+                if (GLOBALS.currb.equipment.Count > i)
                     GLOBALS.currb.equipment[i] = t.Text;
                 else
                     GLOBALS.currb.equipment.Add(t.Text);
@@ -142,7 +140,7 @@ namespace Final
             i = 0;
             foreach (TextBox t in oProfs.Children)
             {
-                if (GLOBALS.currb.oprof.Count < i)
+                if (GLOBALS.currb.oprof.Count > i)
                     GLOBALS.currb.oprof[i] = t.Text;
                 else
                     GLOBALS.currb.oprof.Add(t.Text);

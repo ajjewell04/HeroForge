@@ -107,7 +107,7 @@ namespace Final
 
         void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            SaveRace();
+            
 
             GLOBALS.listindex = -1;
             if (sender.Equals(HomeButton))
@@ -132,7 +132,7 @@ namespace Final
             }
         }
 
-        void SaveRace()
+        void SaveRace(object sender, RoutedEventArgs e)
         {
             if(GLOBALS.listindex == -1) 
             {

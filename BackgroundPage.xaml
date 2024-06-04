@@ -68,7 +68,7 @@
                 <TextBox Name="Backfeat" TextWrapping="Wrap" AcceptsReturn="True"/>
                 <TextBlock/>
 
-
+                <Button Foreground="#1c2630" Content="Save" Click="SaveBack" HorizontalAlignment="Right" />
             </StackPanel>
         </ScrollViewer>
     </Grid>
