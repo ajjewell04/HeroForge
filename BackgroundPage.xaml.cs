@@ -49,12 +49,12 @@ namespace Final
 
             if(sender.Equals(profbutt))
             {
-                textBox.Text = "Enter new proficiency";
+                textBox.PlaceholderText = "Enter new proficiency";
                 oProfs.Children.Add(textBox);
             }
             else
             {
-                textBox.Text = "Add new equipment";
+                textBox.PlaceholderText = "Add new equipment";
                 equip.Children.Add(textBox);
             }
         }

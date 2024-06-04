@@ -95,16 +95,6 @@ namespace Final
             trait.Children.Add(textBoxn);
         }
 
-        void ASIButton(object sender, RoutedEventArgs e)
-        {
-            TextBox textBoxn = new TextBox();
-            textBoxn.Text = "";
-            textBoxn.AcceptsReturn = true;
-
-            //ASI.Children.Add(textBoxn);
-        }
-
-
         void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             

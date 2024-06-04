@@ -76,7 +76,7 @@
                 <ListBox></ListBox>
                 <TextBlock FontWeight ="Bold" Foreground="#1c2630">Features</TextBlock>
                 <StackPanel Name ="levelList"></StackPanel>
-                <Button Foreground="#1c2630" Content="Save" Click="SaveClass" HorizontalAlignment="Right" />
+                <Button Foreground="#1c2630" Content="Save" Click="SaveClass" HorizontalAlignment="Right" Name="Save" />
             </StackPanel>
         </ScrollViewer>
     </Grid>

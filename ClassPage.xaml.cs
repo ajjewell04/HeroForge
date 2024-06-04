@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Composition;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -76,14 +78,14 @@ namespace Final
 
             TextBox textBoxn = new TextBox();
             textBoxn.Width = 132;
-            textBoxn.Text = "Enter feature name here";
+            textBoxn.PlaceholderText = "Enter feature name here";
             textBoxn.AcceptsReturn = true;
             textBoxn.TextWrapping = TextWrapping.Wrap;
             TextBox textBox = new TextBox();
             textBox.Width = 300;
             textBox.AcceptsReturn = true;
             textBox.TextWrapping = TextWrapping.Wrap;
-            textBox.Text = "Enter your new feature here";
+            textBox.PlaceholderText = "Enter your new feature here";
 
             listBox.Children.Add(textBoxn);
             listBox.Children.Add(textBox);
@@ -100,7 +102,7 @@ namespace Final
         void EquipButton(object sender, RoutedEventArgs e)
         {
             TextBox textBoxn = new TextBox();
-            textBoxn.Text = "Enter new equipment here";
+            textBoxn.PlaceholderText = "Enter new equipment here";
             textBoxn.AcceptsReturn = true;
             textBoxn.TextWrapping = TextWrapping.Wrap;
 
@@ -110,7 +112,7 @@ namespace Final
         void OProfButton(object sender, RoutedEventArgs e)
         {
             TextBox textBoxn = new TextBox();
-            textBoxn.Text = "Enter other proficiencies here";
+            textBoxn.PlaceholderText = "Enter other proficiencies here";
             textBoxn.AcceptsReturn = true;
             textBoxn.TextWrapping = TextWrapping.Wrap;
 
@@ -168,6 +170,7 @@ namespace Final
 
             GLOBALS.currc.desc = Classdesc.Text;
             GLOBALS.currc.profnum = Classprof.Text;
+            GLOBALS.currc.hp = Classhp.Text;
 
             int i = 0;
             foreach (CheckBox c in ProfList.Children)
