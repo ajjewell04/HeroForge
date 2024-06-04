@@ -12,12 +12,13 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-
+using Windows.UI.Xaml.Shapes;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace Final
@@ -29,17 +30,27 @@ namespace Final
     {
         public class Background
         {
-            public string name;
-            public string desc;
+            public string name = "";
+            public string desc = "";
 
             public bool[] prof = new bool[18];
             public List<string> equipment = new List<string>();
-            public string feat;
+            public List<string> oprof = new List<string>();
+            public string feat = "";
         }
 
         public class Race
         {
-            public string name;
+            public Race()
+            {
+                for (int i = 0; i < 6; i++)
+                    asi[i] = "";
+            }
+
+            public string name = "";
+            public string desc = "";
+            public string speed = "";
+            public string lang = "";
             public string[] asi = new string[6];
             public List<string> feats = new List<string>();
         }
@@ -191,7 +202,7 @@ namespace Final
             {
                 GLOBALS.listindex = racebox.SelectedIndex;
                 GLOBALS.currr = GLOBALS.races[GLOBALS.listindex];
-                ClassPage page = new ClassPage();
+                RacePage page = new RacePage();
                 this.Content = page;
             }
             else
@@ -207,13 +218,13 @@ namespace Final
         {
             ListBoxItem wizard = new ListBoxItem();
             wizard.FontFamily = new FontFamily("Old English Text MT");
-            wizard.Content = "Wizard(Prebuilt)";
+            wizard.Content = "Wizard (Prebuilt)";
             GLOBALS.classlist.Add(wizard);
 
             GLOBALS.Classes wiz = new GLOBALS.Classes();
             GLOBALS.classes.Add(wiz);
 
-            wiz.name = "Wizard(Prebuilt)";
+            wiz.name = "Wizard (Prebuilt)";
             wiz.desc = "Wizards are supreme magic-users, defined and united as a class by the spells they cast. Drawing on the subtle weave of magic that permeates the cosmos, wizards cast spells of explosive fire, arcing lightning, subtle deception, brute-force mind control, and much more.";
             wiz.hp = "1d6 + Con per level";
 
@@ -252,15 +263,43 @@ namespace Final
         void InitHuman()
         {
             ListBoxItem human = new ListBoxItem();
-            human.Content = "Human";
+            human.Content = "Human (Prebuilt)";
             GLOBALS.racelist.Add(human);
+
+            GLOBALS.Race hum = new GLOBALS.Race();
+            GLOBALS.races.Add(hum);
+            hum.name = "Human (Prebuilt)";
+            hum.desc = "In the reckonings of most worlds, humans are the youngest of the common races, late to arrive on the world scene and short-lived in comparison to dwarves, elves, and dragons. Perhaps it is because of their shorter lives that they strive to achieve as much as they can in the years they are given.Or maybe they feel they have something to prove to the elder races, and that's why they build their mighty empires on the foundation of conquest and trade. Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds.";
+            hum.speed = "30";
+            hum.lang = "Common and one extra language of your choice.";
+
+            for(int i = 0; i<6; i++) 
+            {
+                hum.asi[i] = "+1";
+            }
         }
 
         void InitFolkHero()
         {
             ListBoxItem folkhero = new ListBoxItem();
-            folkhero.Content = "Folk Hero";
+            folkhero.Content = "Folk Hero (Prebuilt)";
             GLOBALS.backlist.Add(folkhero);
+
+            GLOBALS.Background folk = new GLOBALS.Background();
+            GLOBALS.backgrounds.Add(folk);
+            folk.name = "Folk Hero (Prebuilt)";
+            folk.desc = "You come from a humble social rank, but you are destined for so much more. Already the people of your home village regard you as their champion, and your destiny calls you to stand against the tyrants and monsters that threaten the common folk everywhere.";
+            folk.prof[1] = true;
+            folk.prof[16] = true;
+            folk.oprof.Add("One type of artisan's tools");
+            folk.oprof.Add("vehicles (land)");
+            folk.equipment.Add("A set of artisan's tools (one of your choice)");
+            folk.equipment.Add("A shovel");
+            folk.equipment.Add("An iron pot");
+            folk.equipment.Add("A set of common clothes");
+            folk.equipment.Add("A pouch containing 10gp");
+            folk.feat = "Rustic Hospitality\r\n\r\nSince you come from the ranks of the common folk, you fit in among them with ease. You can find a place to hide, rest, or recuperate among other commoners, unless you have shown yourself to be a danger to them. They will shield you from the law or anyone else searching for you, though they will not risk their lives for you.";
+
         }
     }
 }

@@ -119,7 +119,7 @@ namespace Final
 
         void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            SaveClass();
+            
 
             GLOBALS.listindex = -1;
             if (sender.Equals(HomeButton))
@@ -144,7 +144,7 @@ namespace Final
             }
         }
 
-        void SaveClass()
+        void SaveClass(object sender, RoutedEventArgs e)
         {
             if (GLOBALS.listindex == -1)
             {
@@ -162,8 +162,6 @@ namespace Final
             {
                 Classname.Text = "Unnamed Class";
             }
-
-
 
             GLOBALS.currc.name = Classname.Text;
             GLOBALS.classlist[GLOBALS.listindex].Content = Classname.Text;
@@ -204,7 +202,7 @@ namespace Final
             i = 0;
             foreach (TextBox t in equip.Children)
             {
-                if (GLOBALS.currc.equipment.Count < i)
+                if (GLOBALS.currc.equipment.Count > i)
                     GLOBALS.currc.equipment[i] = t.Text;
                 else
                     GLOBALS.currc.equipment.Add(t.Text);
@@ -215,7 +213,7 @@ namespace Final
             i = 0;
             foreach (TextBox t in oProf.Children)
             {
-                if (GLOBALS.currc.oprof.Count < i)
+                if (GLOBALS.currc.oprof.Count > i)
                     GLOBALS.currc.oprof[i] = t.Text;
                 else
                     GLOBALS.currc.oprof.Add(t.Text);
@@ -300,7 +298,6 @@ namespace Final
                 i++;
             }
 
-            
             for(i = 0; i < GLOBALS.currc.equipment.Count; i++)
             {
                 TextBox textBoxn = new TextBox();
